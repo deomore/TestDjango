@@ -1,0 +1,5 @@
+NAME = 'cars_db'
+USER = 'root'
+PASSWORD = 'root'
+HOST = 'localhost'
+PORT = '5432'
