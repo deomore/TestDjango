@@ -14,10 +14,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from rest_framework.authtoken import views as auth_views
+
+from DjangoTest import settings
 from car import views
 
 router = DefaultRouter()
@@ -31,3 +34,5 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('api/token/auth/', auth_views.obtain_auth_token)
 ]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7fbe4998-3c49-4585-814b-a017860bd489" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="7fbe4998-3c49-4585-814b-a017860bd489" name="Changes" comment="added gitignore, some minor Pylint fixes _ validation">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DjangoTest/renders.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoTest/renders.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB_CREDITS.py" beforeDir="false" afterPath="$PROJECT_DIR$/DB_CREDITS.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DjangoTest/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoTest/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/car/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/car/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/car/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/car/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoTest/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoTest/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="exports" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -59,8 +61,8 @@
     "Django Server.DjangoTest.executor": "Run",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/d30/PycharmProjects/djangoProject/DjangoTest/DjangoTest",
+    "git-widget-placeholder": "docker`ed",
+    "last_opened_file_path": "C:/Users/d30/PycharmProjects/djangoProject/DjangoTest",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -71,8 +73,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\d30\PycharmProjects\djangoProject\DjangoTest\DjangoTest" />
       <recent name="C:\Users\d30\PycharmProjects\djangoProject\DjangoTest" />
+      <recent name="C:\Users\d30\PycharmProjects\djangoProject\DjangoTest\DjangoTest" />
     </key>
   </component>
   <component name="RunManager">
@@ -120,9 +122,22 @@
       <updated>1732300721354</updated>
       <workItem from="1732300724747" duration="687000" />
     </task>
+    <task id="LOCAL-00001" summary="added gitignore, some minor Pylint fixes _ validation">
+      <option name="closed" value="true" />
+      <created>1732374797310</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732374797310</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added gitignore, some minor Pylint fixes _ validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="added gitignore, some minor Pylint fixes _ validation" />
   </component>
 </project>

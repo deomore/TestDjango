@@ -60,8 +60,10 @@ target/
 # pyenv
 .python-version
 
+
 # dotenv
 .env
+*.env
 
 # virtualenv
 .venv
