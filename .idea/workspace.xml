@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fbe4998-3c49-4585-814b-a017860bd489" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DjangoTest/renders.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoTest/renders.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoTest/renders.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DjangoTest/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoTest/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DjangoTest/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoTest/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/car/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/car/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/car/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/car/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/car/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,11 +28,23 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="exports" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "deomore"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/deomore/TestDjango.git",
+    "accountId": "3a7535d7-a7aa-44e9-ad28-3c29addbc7d9"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -45,7 +59,7 @@
     "Django Server.DjangoTest.executor": "Run",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "exports",
+    "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Users/d30/PycharmProjects/djangoProject/DjangoTest/DjangoTest",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

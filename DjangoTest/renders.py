@@ -1,6 +1,5 @@
 import io
 import csv
-
 import openpyxl
 from rest_framework import renderers
 
@@ -13,7 +12,8 @@ class CSVCommentsRenderer(renderers.BaseRenderer):
 
     def render(self, data, accepted_media_type=None, renderer_context=None):
         csv_buffer = io.StringIO()
-        csv_writer = csv.DictWriter(csv_buffer, fieldnames=COMMENTS_DATA_FILE_HEADERS, extrasaction="ignore")
+        csv_writer = csv.DictWriter(csv_buffer,
+                                    fieldnames=COMMENTS_DATA_FILE_HEADERS, extrasaction="ignore")
         csv_writer.writeheader()
 
         for comments_data in data:
