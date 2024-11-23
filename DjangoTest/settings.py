@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-import DB_CREDITS
+import db_config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -97,11 +97,11 @@ WSGI_APPLICATION = 'DjangoTest.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': DB_CREDITS.NAME,
-        'USER': DB_CREDITS.USER,
-        'PASSWORD': DB_CREDITS.PASSWORD,
-        'HOST': DB_CREDITS.HOST,
-        'PORT': DB_CREDITS.PORT,
+        'NAME': db_config.NAME,
+        'USER': db_config.USER,
+        'PASSWORD': db_config.PASSWORD,
+        'HOST': db_config.HOST,
+        'PORT': db_config.PORT,
     }
 }
 
