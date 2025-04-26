@@ -3,8 +3,10 @@ from rest_framework import viewsets, permissions
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from DjangoTest.renders import ExcelCommentsRenderer, CSVCommentsRenderer
-from car.models import Country, Brand, Car, Comments
-from car.serializers import CountrySerializer, BrandSerializer, CarSerializer, CommentsSerializer
+from car.models import Country, Comments, Publisher, Studio, Game
+from car.serializers import CountrySerializer,  CommentsSerializer, PublisherSerializer, \
+    StudioSerializer, GameSerializer
+
 
 class CustomCommentsAuth(permissions.BasePermission):
     def has_permission(self, request, view):
@@ -17,15 +19,21 @@ class CountryViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
-class BrandViewSet(viewsets.ModelViewSet):
-    queryset = Brand.objects.all()
-    serializer_class = BrandSerializer
+class PublisherViewSet(viewsets.ModelViewSet):
+    queryset = Publisher.objects.all()
+    serializer_class = PublisherSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
-class CarViewSet(viewsets.ModelViewSet):
-    queryset = Car.objects.all()
-    serializer_class = CarSerializer
+class StudioViewSet(viewsets.ModelViewSet):
+    queryset = Studio.objects.all()
+    serializer_class = StudioSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+
+class GameViewSet(viewsets.ModelViewSet):
+    queryset = Game.objects.all()
+    serializer_class = GameSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 

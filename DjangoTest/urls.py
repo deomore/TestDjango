@@ -25,8 +25,9 @@ from car import views
 
 router = DefaultRouter()
 router.register(r'countries', views.CountryViewSet)
-router.register(r'brands', views.BrandViewSet)
-router.register(r'cars', views.CarViewSet)
+router.register(r'publisher', views.PublisherViewSet)
+router.register(r'studios', views.StudioViewSet)
+router.register(r'games', views.GameViewSet)
 router.register(r'comments', views.CommentsViewSet)
 
 urlpatterns = [
@@ -36,3 +37,4 @@ urlpatterns = [
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
