@@ -33,7 +33,8 @@ router.register(r'comments', views.CommentsViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('api/token/auth/', auth_views.obtain_auth_token)
+    path('api/token/auth/', auth_views.obtain_auth_token),
+    path('api/current_user', current_user),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

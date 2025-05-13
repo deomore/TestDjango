@@ -1,5 +1,7 @@
 from django.utils import timezone
 from rest_framework import viewsets, permissions
+from rest_framework.decorators import api_views, permission_classes
+from rest_framework import permissions
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from DjangoTest.renders import ExcelCommentsRenderer, CSVCommentsRenderer
@@ -7,6 +9,13 @@ from car.models import Country, Comments, Publisher, Studio, Game
 from car.serializers import CountrySerializer,  CommentsSerializer, PublisherSerializer, \
     StudioSerializer, GameSerializer
 
+@api_views(['GET'])
+@permission_classes([permissions.IsAuthenticatedOrReadOnly])
+def current_user(request):
+    return Response({
+        'username': request.user.username,
+        'email': request.user.email,
+    })
 
 class CustomCommentsAuth(permissions.BasePermission):
     def has_permission(self, request, view):
