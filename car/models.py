@@ -33,7 +33,7 @@ class Game(models.Model):
                                   related_name='games_publishers')
     release_year = models.IntegerField()
     dls_count = models.IntegerField()
-    preview = models.ImageField(upload_to='game_previews/')
+    preview = models.ImageField(upload_to='game_previews/', blank=True, null=True)
 
     def __str__(self):
         return self.name
