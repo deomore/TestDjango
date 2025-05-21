@@ -49,6 +49,7 @@ class GameSerializer(serializers.ModelSerializer):
     publisher = serializers.PrimaryKeyRelatedField(queryset=Publisher.objects.all(), write_only=True)
     comments_count = serializers.IntegerField(source='comments.count', read_only=True)
     comments = serializers.SlugRelatedField( read_only=True, slug_field='comment', many=True)
+    preview = serializers.ImageField(allow_empty_file=True,allow_null=True)
 
     class Meta:
         model = Game

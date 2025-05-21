@@ -22,6 +22,7 @@ from rest_framework.authtoken import views as auth_views
 
 from DjangoTest import settings
 from car import views
+from car.views import current_user
 
 router = DefaultRouter()
 router.register(r'countries', views.CountryViewSet)
