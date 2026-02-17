@@ -25,8 +25,18 @@ class Studio(models.Model):
         return self.name
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+
+    class Meta:
+        verbose_name_plural = "Categories"
+
+    def __str__(self):
+        return self.name
+
 class Game(models.Model):
     name = models.CharField(max_length=50)
+    description = models.TextField(blank=True, null=True)
     studio = models.ForeignKey(Studio, on_delete=models.CASCADE,
                                related_name='games_studios')
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE,
@@ -34,6 +44,7 @@ class Game(models.Model):
     release_year = models.IntegerField()
     dls_count = models.IntegerField()
     preview = models.ImageField(upload_to='game_previews/', blank=True, null=True)
+    categories = models.ManyToManyField(Category, related_name='games', blank=True)
 
     def __str__(self):
         return self.name
@@ -47,4 +58,16 @@ class Comments(models.Model):
 
     def __str__(self):
         return self.comment
+
+class News(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    image = models.ImageField(upload_to='news_images/', blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = "News"
+
+    def __str__(self):
+        return self.title
 

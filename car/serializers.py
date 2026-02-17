@@ -3,59 +3,62 @@ import re
 
 from django.utils.encoding import force_str
 from rest_framework import serializers
-from car.models import Country, Publisher, Comments, Game, Studio
+from car.models import Country, Publisher, Comments, Game, Studio, News, Category
 
 
 def validate_comment(value):
     if not re.search(r'^[^\[\]*%&!=\';`]*$', value):
         raise serializers.ValidationError({"comment": "Not valid letters in comment"})
 
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = '__all__'
+
 
 class CountrySerializer(serializers.ModelSerializer):
-    publishers = serializers.SlugRelatedField(read_only=True, slug_field='name', many=True)
-
     class Meta:
         model = Country
-        fields = ['id','name','publishers']
-        read_only_fields = ['id']
-
+        fields = ['id', 'name']
 
 class PublisherSerializer(serializers.ModelSerializer):
+    country_details = CountrySerializer(source='country', read_only=True)
+    country = serializers.PrimaryKeyRelatedField(queryset=Country.objects.all(), write_only=True)
     comments_count = serializers.SerializerMethodField(read_only=True)
-    country = serializers.PrimaryKeyRelatedField(queryset=Country.objects.all(), write_only=True )
-    # game = serializers.SlugRelatedField(read_only=True, slug_field='name', many=True)
-    country_info = serializers.SlugRelatedField(read_only=True, slug_field='name', source='country')
 
     class Meta:
         model = Publisher
-        fields = ['id','name', 'country','country_info','founded', 'comments_count']
+        fields = ['id', 'name', 'country', 'country_details', 'founded', 'comments_count']
 
     def get_comments_count(self, instance):
         return Comments.objects.filter(game__publisher=instance).count()
 
-
 class StudioSerializer(serializers.ModelSerializer):
-    country_info = serializers.SlugRelatedField(read_only=True,source='country', slug_field='name')
-    country = serializers.PrimaryKeyRelatedField( queryset=Country.objects.all(), write_only=True)
+    country_details= CountrySerializer(source='country', read_only=True)
+    country = serializers.PrimaryKeyRelatedField(queryset=Country.objects.all(), write_only=True)
 
     class Meta:
         model = Studio
-        fields = ['name', 'country', 'country_info']
+        fields = ['id', 'name', 'country', 'country_details']
+
 
 class GameSerializer(serializers.ModelSerializer):
-    studio_info = serializers.SlugRelatedField(read_only=True, slug_field='name', source='games_studios')
-    studio = serializers.PrimaryKeyRelatedField(queryset=Studio.objects.all(), write_only=True)
-    publisher_info = serializers.SlugRelatedField(read_only=True, slug_field='name', source='games_publishers')
-    publisher = serializers.PrimaryKeyRelatedField(queryset=Publisher.objects.all(), write_only=True)
+    studio_details = StudioSerializer(source='studio', read_only=True)
+    publisher_details = PublisherSerializer(source='publisher', read_only=True)
+    categories_details = CategorySerializer(source='categories', many=True, read_only=True)
     comments_count = serializers.IntegerField(source='comments.count', read_only=True)
-    comments = serializers.SlugRelatedField( read_only=True, slug_field='comment', many=True)
-    preview = serializers.ImageField(allow_empty_file=True,allow_null=True)
+    # Поля ДЛЯ ЗАПИСИ СО СТОРОНЫ ФРОНТА
+    studio = serializers.PrimaryKeyRelatedField(queryset=Studio.objects.all(), write_only=True)
+    publisher = serializers.PrimaryKeyRelatedField(queryset=Publisher.objects.all(), write_only=True)
+    categories = serializers.PrimaryKeyRelatedField(queryset=Category.objects.all(), many=True, write_only=True)
 
     class Meta:
         model = Game
-        fields = ['id', 'name','studio', 'studio_info','publisher', 'publisher_info', 'release_year',
-                  'dls_count','preview',  'comments_count', 'comments']
-
+        fields = [
+            'id', 'name', 'description', 'studio', 'studio_details',
+            'publisher', 'publisher_details', 'categories', 'categories_details',
+            'release_year', 'dls_count', 'preview', 'comments_count'
+        ]
 
 class CommentsSerializer(serializers.ModelSerializer):
     game = serializers.PrimaryKeyRelatedField(queryset=Game.objects.all(), write_only=True)
@@ -75,3 +78,8 @@ class CommentsSerializer(serializers.ModelSerializer):
         if obj.game and obj.game.preview:
             return obj.game.preview.url
         return None
+
+class NewsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = News
+        fields = '__all__'

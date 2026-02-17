@@ -30,6 +30,8 @@ router.register(r'publisher', views.PublisherViewSet)
 router.register(r'studios', views.StudioViewSet)
 router.register(r'games', views.GameViewSet)
 router.register(r'comments', views.CommentsViewSet)
+router.register(r'categories', views.CategoryViewSet)
+router.register(r'news', views.NewsViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

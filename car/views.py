@@ -5,9 +5,10 @@ from rest_framework import permissions
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from DjangoTest.renders import ExcelCommentsRenderer, CSVCommentsRenderer
-from car.models import Country, Comments, Publisher, Studio, Game
-from car.serializers import CountrySerializer,  CommentsSerializer, PublisherSerializer, \
-    StudioSerializer, GameSerializer
+from car.models import Country, Comments, Publisher, Studio, Game, News
+from car.serializers import CountrySerializer, CommentsSerializer, PublisherSerializer, \
+    StudioSerializer, GameSerializer, NewsSerializer
+
 
 @api_view(['GET'])
 @permission_classes([permissions.IsAuthenticatedOrReadOnly])
@@ -62,3 +63,8 @@ class CommentsViewSet(viewsets.ModelViewSet):
         serializer = CommentsSerializer(queryset, many=True)
         return Response(serializer.data,
                         headers={"Content-Disposition": f'attachment; filename="{file_name}"'})
+
+class NewsViewSet(viewsets.ModelViewSet):
+    queryset = News.objects.order_by('-created_at')
+    serializer_class = NewsSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
